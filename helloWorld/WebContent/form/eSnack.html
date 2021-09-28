@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Snack</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the header */
+header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+  float: left;
+  width: 30%;
+  height: 550px; /* only for demonstration, should be removed */
+  background: #ccc;
+  padding: 20px;
+}
+
+/* Style the list inside the menu */
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+article {
+  float: left;
+  padding: 20px;
+  width: 70%;
+  background-color: #f1f1f1;
+  height: 550px; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media (max-width: 600px) {
+  nav, article {
+    width: 100%;
+    height: auto;
+  }
+}
+</style>
+</head>
+<body>
+<header>
+  <h2>EDIYA Snack</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a href="eCoffee.html">커피</a></li>
+      <li><a href="eCake.html">케익</a></li>
+      <li><a href="eSnack.html">스낵</a></li>
+    </ul>
+  </nav>
+  
+  <article>
+    <table border="1">
+      <thead>
+          <th colspan="5" style="font-size: 75px;">Snack List</th>
+      </thead>
+      <tbody>
+          <tr>
+              <td><img src="../ediya/snack1.PNG" width="200"></a><br><input type="button" value="미니프레첼 와사비맛" onclick="window.open('https://www.ediya.com/contents/ediya_snack.html#c')"></td>
+              <td><img src="../ediya/snack2.PNG" width="200"></a><br><input type="button" value="미니프레첼 볶음양념맛" onclick="window.open('https://www.ediya.com/contents/bakery.html?chked_val=18,&skeyword=#blockcate')"></td>
+              <td><img src="../ediya/snack3.PNG" width="200"></a><br><input type="button" value="미니 코코 크런치" onclick="window.open('https://www.ediya.com/contents/bakery.html?chked_val=18,&skeyword=#blockcate')"></td>
+              <td><img src="../ediya/snack4.PNG" width="200"></a><br><input type="button" value="크리미초코 감자쿠키" onclick="window.open('https://www.ediya.com/contents/bakery.html?chked_val=18,&skeyword=#blockcate')"></td>
+              <td><img src="../ediya/snack5.PNG" width="200"></a><br><input type="button" value="크리미치즈 그레인쿠키" onclick="window.open('https://www.ediya.com/contents/bakery.html?chked_val=18,&skeyword=#blockcate')"></td>
+          </tr>
+      </tbody>
+  </table>
+  </article>
+</section>
+
+<footer>
+  <p>Footer</p>
+</footer>
+
+</body>
+</html>
+
