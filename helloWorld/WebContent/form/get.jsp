@@ -1,3 +1,4 @@
+<%@page import="co.yedam.common.EmpDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,10 +9,13 @@
 </head>
 <body>
 	<%
-		String id = request.getParameter("userId"); // userId=guest
-		String pw = request.getParameter("userPw"); // userPw=1234
-		out.println("<h1>입력값 : " + id + "</h1>");
-		out.println("<h1>비번 : " + pw + "</h1>");
+		EmpDAO dao = new EmpDAO();
+	
+		String id = request.getParameter("employeeId"); // userId=guest
+		String pw = request.getParameter("phone"); // userPw=1234
+		String salary = request.getParameter("salary");
+		dao.updateEmp(id, pw, salary);
+		out.println("<h3>정상적으로 수정</h3>");
 	%>
 </body>
 </html>
