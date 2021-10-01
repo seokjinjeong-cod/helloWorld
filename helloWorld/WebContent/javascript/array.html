@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/array.html</title>
+</head>
+
+<body>
+    <input type="text" id="inputValue" value="">
+    <p>test</p>
+    <button id="btn" onclick="addArray()">추가하기</button>
+    <button onclick="removeAry()">제거하기</button>
+    <ul id="list">
+    </ul>
+    <script>
+        const inputAry = [];
+
+        function showList() {
+            let ulTag = document.getElementById('list');
+            let tag = '';
+            for (let i = 0; i < inputAry.length; i++) {
+                tag += '<li>' + inputAry[i] + '</li>';
+            }
+            ulTag.innerHTML = tag;
+        }
+
+        function removeAry() {
+            //과제
+            //inputAry[2] = null; // a, b, c, null, d, e, f,
+            // inputAry.splice(2, 2, 'd', 'e'); //index가 2인 위치부터 2칸을 d, e로 대체 (d, e를 입력하지 않을시 2번째 인덱스 값부터 2칸 당김)
+            let input = document.getElementById('inputValue');
+            let iValue = input.value;
+            for(let i = 0; i < inputAry.length; i++) {
+                if(inputAry[i] == iValue){
+                    inputAry.splice(i, 1);
+                }
+            }
+            // inputAry.shift();
+            showList();
+            input.value = '';
+            input.focus();
+        }
+
+        function addArray() {
+            let input = document.getElementById('inputValue');
+            let iValue = input.value;
+
+            //배열 추가.
+            // 0, null, "" => false
+            // 20, -9, "   " => true
+
+            // 비정상적인 처리 => 메세지.
+            if (!iValue) {
+                alert('값을 입력하세요.');
+                return;
+            }
+
+            inputAry.unshift(iValue);
+            showList();
+            input.value = '';
+            input.focus();
+            console.log(inputAry);
+
+        }
+    </script>
+</body>
+
+</html>
