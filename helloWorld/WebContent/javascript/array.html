@@ -18,24 +18,33 @@
     <script>
         const inputAry = [];
 
-        function showList() {
-            let ulTag = document.getElementById('list');
-            let tag = '';
-            for (let i = 0; i < inputAry.length; i++) {
-                tag += '<li>' + inputAry[i] + '</li>';
-            }
-            ulTag.innerHTML = tag;
-        }
+        // function showList() {
+        //     let ulTag = document.getElementById('list');
+        //     let tag = '';
+        //     for (let i = 0; i < inputAry.length; i++) {
+        //         tag += '<li>' + inputAry[i] + '</li>';
+        //     }
+        //     ulTag.innerHTML = tag;
+        // }
+        const fruits = ['apple', 'banana', 'cherry'];
+        const newFruits = fruits.slice(0, 2);
+
+        console.log(newFruits);
+
 
         function removeAry() {
             //과제
             //inputAry[2] = null; // a, b, c, null, d, e, f,
             // inputAry.splice(2, 2, 'd', 'e'); //index가 2인 위치부터 2칸을 d, e로 대체 (d, e를 입력하지 않을시 2번째 인덱스 값부터 2칸 당김)
+            // element값을 갖고오도록
             let input = document.getElementById('inputValue');
-            let iValue = input.value;
+            // let iv = document.getElementsByTagName('input')[0].value;
+            let iv = document.querySelector('input[type="text"]').value;
+            console.log(iv);
             for(let i = 0; i < inputAry.length; i++) {
-                if(inputAry[i] == iValue){
+                if(inputAry[i] == iv){
                     inputAry.splice(i, 1);
+                    break;
                 }
             }
             // inputAry.shift();

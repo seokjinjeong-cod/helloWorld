@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript/date.html</title>
+    <style>
+        * {
+            font-family: cursive;
+            font-weight: bold;
+        }
+
+        table {
+            background-color: seashell;
+        }
+
+        thead {
+            background-color: gold;
+        }
+
+        table>tbody>tr>:nth-child(1) {
+            background-color: red;
+
+        }
+
+        table>tbody>tr>:nth-child(7) {
+            background-color: orange;
+        }
+
+        div {
+            display: inline-block;
+            margin: 5px;
+            height: 200px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <script>
+        // let today = new Date();
+        // document.write('<head>' + today.getFullYear() + '년</head>');
+        for(let i = 1; i <= 12; i++) {
+            // showCalendar(2020, i);
+            document.write('<div>');
+            showCalendar(2021, i);
+            document.write('</div>');
+        }
+
+        function showCalendar(year, month) {
+            let today = new Date(year, month-1, 1); //2021, 10, 1
+            let lastDate = new Date(year, month, 0);
+    
+            // document.write('오늘의 년도 : ' + today.getFullYear() + '<br>');
+            // document.write(today.getMonth() + 1 + '<br>');
+            // document.write(today.getDate() + '<br>');
+            // document.write(today.getDay() + '<br>'); // 0 ~ 6
+    
+            // document.write(lastDate.getDate());
+    
+            let days = ['일', '월', '화', '수', '목', '금', '토'];
+            let tag = '<div><table border="1"><thead><th colspan="7">' + today.getFullYear() + '년' + (today.getMonth() + 1) +
+                '월 달력</th><thead><tbody>';
+            tag += '<tr>';
+            var blank = 0;
+            for (let i = 0; i < days.length; i++) {
+                tag += '<td style="background-color: yellow;">' + days[i] + '</td>';
+            }
+            tag += '</tr>';
+            for (let i = 0; i < today.getDay(); i++) {
+                tag += '<td style="background-color: black;"></td>';
+                blank++;
+            }
+            for (let i = 1; i <= lastDate.getDate(); i++) {
+                tag += '<td>' + i + '</td>';
+                if ((blank + i) % 7 == 0) {
+                    tag += '</tr><tr>';
+                }
+            }
+            tag += '</table></div>';
+            document.write(tag);
+        }
+
+
+
+        // let today = new Date(2021, 9, 1); //2021, 10, 1
+        // let lastDate = new Date(2021, 10, 0);
+
+        // document.write('오늘의 년도 : ' + today.getFullYear() + '<br>');
+        // document.write(today.getMonth() + 1 + '<br>');
+        // document.write(today.getDate() + '<br>');
+        // document.write(today.getDay() + '<br>'); // 0 ~ 6
+
+        // document.write(lastDate.getDate());
+
+        // let days = ['일', '월', '화', '수', '목', '금', '토'];
+        // let tag = '<table border="1"><thead><th colspan="7">' + (today.getMonth() + 1) +
+        //     '월 달력</th><thead><tbody>';
+        // tag += '<tr>';
+        // var blank = 0;
+        // for (let i = 0; i < days.length; i++) {
+        //     tag += '<td style="background-color: yellow;">' + days[i] + '</td>';
+        // }
+        // tag += '</tr>';
+        // for (let i = 0; i < today.getDay(); i++) {
+        //     tag += '<td style="background-color: black;"></td>';
+        //     blank++;
+        // }
+        // for (let i = 1; i <= lastDate.getDate(); i++) {
+        //     tag += '<td>' + i + '</td>';
+        //     if ((blank + i) % 7 == 0) {
+        //         tag += '</tr><tr>';
+        //     }
+        // }
+        // document.write(tag);
+    </script>
+</body>
+
+</html>
