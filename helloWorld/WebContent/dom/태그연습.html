@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom/태그연습.html</title>
+</head>
+
+<body>
+    <!-- <form action="post.jsp" name="frm">
+        <label for="emp">아이디</label>
+        <input type="text" name="emp" id="emp">
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name">
+        <input type="submit" value="전송">
+    </form> -->
+
+    <!-- <table border="1">
+        <thead>
+            <tr>
+                <th>아이디</th>
+                <th>이름</th>
+                <th>성별</th>
+                <th>연락처</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>hongee</td>
+                <td>홍길동</td>
+                <td>남자</td>
+                <td>010-1234-5678</td>
+            </tr>
+            <tr>
+                <td>minsunie</td>
+                <td>김민순</td>
+                <td>여자</td>
+                <td>010-3333-5543</td>
+            </tr>
+        </tbody>
+    </table> -->
+
+    <script>
+        
+        let info = [{
+            아이디: 'hongee',
+            이름: '홍길동',
+            성별: '남자',
+            연락처: '010-1234-5678'
+        }, {
+            아이디: 'minsunie',
+            이름: '김민순',
+            성별: '여자',
+            연락처: '010-3333-5543'
+        }];
+
+        let table, thead, tbody, th, tr, td, txt;
+        table = document.createElement('table');
+        table.setAttribute('border', '1');
+
+        // title
+        thead = document.createElement('thead');
+        tr = document.createElement('tr');
+        for(let field in info[0]) {
+            th = document.createElement('th');
+            txt = document.createTextNode(field);
+            th.appendChild(txt);
+            tr.appendChild(th);
+        }
+        thead.appendChild(tr);
+        table.appendChild(thead);
+
+        // data
+        tbody = document.createElement('tbody');
+        for(let row of info) {
+            tr = document.createElement('tr');
+            for(let field in row){
+                td = document.createElement('td');
+                txt = document.createTextNode(row[field]);
+                td.appendChild(txt);
+                tr.appendChild(td);
+            }
+            tbody.appendChild(tr);
+        }
+
+        table.appendChild(tbody);
+        document.body.appendChild(table);
+
+
+        // data
+        for(let member of info) {
+            for(let field in member) {
+
+            }
+        }
+
+        //------------------------------------------------------------------------------------------------------
+
+        let form, label, input, text;
+        form = document.createElement('form');
+        form.setAttribute('action', 'post.jsp');
+        form.setAttribute('name', 'frm');
+
+        label = document.createElement('label');
+        label.setAttribute('for', 'emp');
+        text = document.createTextNode('아이디');
+        label.appendChild(text);
+        form.appendChild(label);
+
+        input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', 'emp');
+        input.setAttribute('id', 'emp');
+        form.appendChild(input);
+
+        label = document.createElement('label');
+        label.setAttribute('for', 'name');
+        text = document.createTextNode('이름');
+        label.appendChild(text);
+        form.appendChild(label);
+
+        input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('name', 'name');
+        input.setAttribute('id', 'name');
+        form.appendChild(input);
+
+        input = document.createElement('input');
+        input.setAttribute('type', 'submit');
+        input.setAttribute('value', 'name');
+        form.appendChild(input);
+
+        // let body = document.getElementsByTagName('body');
+        // body.appendChild(form);
+        document.body.appendChild(form);
+    </script>
+</body>
+
+</html>
