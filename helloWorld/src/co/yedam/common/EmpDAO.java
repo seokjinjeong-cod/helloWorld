@@ -84,7 +84,22 @@ public class EmpDAO extends DAO {
 		} finally {
 			disconnect();
 		}
-		
+	}
+	
+	public int deleteEmployee(int empId) {
+		connect(); // conn = dbconnection.Connection
+		String sql = "delete from empl_demo where employee_id = " + empId;
+		try {
+			stmt = conn.createStatement(); // Employee emp = new Employee();
+			int r = stmt.executeUpdate(sql);
+			System.out.println(r + "건 삭제됨.");
+			return empId;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
+		}
+		return -1;
 	}
 	
 	

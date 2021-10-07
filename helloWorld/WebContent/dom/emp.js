@@ -38,10 +38,14 @@
 					td.appendChild(txt);
 					tr.appendChild(td);
 				}
-                button = document.createElement('button');
-                txt = document.createTextNode('삭제');
-                button.appendChild(txt);
-                tr.appendChild(button);
+                td = document.createElement('td');
+				button = document.createElement('button');
+				console.log(row.empId);
+				button.setAttribute('id', row.empId);
+				txt = document.createTextNode('삭제');
+				button.appendChild(txt);
+				td.appendChild(button);
+				tr.appendChild(td);
 				table.appendChild(tr);
 			}
 
