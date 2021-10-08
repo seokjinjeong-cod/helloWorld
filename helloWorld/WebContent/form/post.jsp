@@ -1,5 +1,5 @@
-<%@page import="co.yedam.common.Employee"%>
-<%@page import="co.yedam.common.EmpDAO"%>
+<%@page import="co.yedam.comment.Employee"%>
+<%@page import="co.yedam.comment.EmpDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
